@@ -1,0 +1,14 @@
+2020-02-20 16:07:32.411  INFO 3180 --- [main] com.rubypaper.BoardControllerTest        : Starting BoardControllerTest on boyui-MacBookPro.local with PID 3180 (started by boy. in /Users/MACBOHAN/Documents/elevatingcodingclub/book_SpringBootQuickStart/Chapter03_TestLoggingBuild)
+2020-02-20 16:07:32.412 DEBUG 3180 --- [main] com.rubypaper.BoardControllerTest        : Running with Spring Boot v2.1.5.RELEASE, Spring v5.1.7.RELEASE
+2020-02-20 16:07:32.413  INFO 3180 --- [main] com.rubypaper.BoardControllerTest        : No active profile set, falling back to default profiles: default
+2020-02-20 16:07:33.955  INFO 3180 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-20 16:07:34.205  INFO 3180 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2020-02-20 16:07:34.205  INFO 3180 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-02-20 16:07:34.216  INFO 3180 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 10 ms
+2020-02-20 16:07:34.240  INFO 3180 --- [main] com.rubypaper.BoardControllerTest        : Started BoardControllerTest in 2.194 seconds (JVM running for 3.511)
+2020-02-20 16:07:34.241 TRACE 3180 --- [main] com.rubypaper.LogginRunner               : TRACE 로그 메시지
+2020-02-20 16:07:34.241 DEBUG 3180 --- [main] com.rubypaper.LogginRunner               : DEBUG 로그 메시지
+2020-02-20 16:07:34.241  INFO 3180 --- [main] com.rubypaper.LogginRunner               : INFO 로그 메시지
+2020-02-20 16:07:34.241  WARN 3180 --- [main] com.rubypaper.LogginRunner               : WARN 로그 메시지
+2020-02-20 16:07:34.241 ERROR 3180 --- [main] com.rubypaper.LogginRunner               : ERROR 로그 메시지
+2020-02-20 16:07:34.448  INFO 3180 --- [Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
