@@ -12,15 +12,14 @@ import com.rubypaper.domain.Board;
 public class JPAClient {
 	
 	public static void main(String[] args) {
-		
 		//EntityManager 생성
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Chapter04_JPA");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		
-		
+		/*
 		try {
-			//tx.begin();
+			tx.begin();
 			
 			Board board = new Board();
 			
@@ -32,9 +31,8 @@ public class JPAClient {
 			
 			// 글 등록
 			em.persist(board);
-				
 			
-			//tx.commit();
+			tx.commit();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -42,7 +40,19 @@ public class JPAClient {
 		} finally {
 			em.close();
 			emf.close();
+		} */
+		
+		try {
+			//글 상세 조회
+			Board searchBoard = em.find(Board.class, 1L);
+			System.out.println("--->" + searchBoard.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+			emf.close();
 		}
+		
 		
 	}
 

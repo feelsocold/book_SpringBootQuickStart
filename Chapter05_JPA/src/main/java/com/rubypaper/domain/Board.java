@@ -22,16 +22,15 @@ import lombok.ToString;
 		name="BOARD_SEQ",
 		sequenceName = "BOARD_SEQ",
 		initialValue = 1,
-		allocationSize = 1
+		allocationSize = 1 
 							)
 public class Board {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,
-	generator="BOARD_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BOARD_SEQ")
 	private Long seq;
 	private String title;
-	private String wrtier;
+	private String writer;
 	private String content;
 	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date createDate;
