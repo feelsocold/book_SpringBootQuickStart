@@ -52,7 +52,7 @@ public class QueryAnnotationTest {
 		for (Object[] row : boardList) {
 			System.out.println("===>" + Arrays.toString(row));
 		}
-	} */
+	} 
 	
 	@Test
 	public void testQueryAnnotationTest4() {
@@ -64,4 +64,6 @@ public class QueryAnnotationTest {
 			System.out.println("----> " + board.toString());
 		}
 	}
+	
+	*/
 }

@@ -38,6 +38,7 @@ public interface BoardRepository extends CrudRepository<Board, Long> {
 	List<Board> queryAnnotationTest1(@Param("searchKeyword") String searchKeyword); */
 	
 	// * 특정변수만 조회하기
+	/*
 	@Query("SELECT b.seq, b.title, b.writer, b.createDate "
 			+ " FROM Board b " 
 			+ " WHERE b.title like %?1% "
@@ -53,4 +54,6 @@ public interface BoardRepository extends CrudRepository<Board, Long> {
 	// 페이징 및 정렬 처리
 	@Query("SELECT b FROM Board b ORDER BY b.seq DESC")
 	List<Board> queryAnnotationTest4(Pageable paging);
+	
+	*/
 }
