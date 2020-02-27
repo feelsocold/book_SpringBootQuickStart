@@ -1,10 +1,10 @@
 package com.rubypaper;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SampleApplicationTests {
+class Chapter06ThymeleafApplicationTests {
 
 	@Test
 	void contextLoads() {
