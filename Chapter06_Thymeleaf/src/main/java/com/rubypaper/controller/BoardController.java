@@ -7,25 +7,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.rubypaper.domain.Board;
+import com.rubypaper.domain.Member;
 import com.rubypaper.persistence.BoardRepository;
 import com.rubypaper.service.BoardService;
 
 import lombok.extern.log4j.Log4j2;
-import oracle.jdbc.proxy.annotation.Post;
 
 @Log4j2
+@SessionAttributes("member")
 @Controller
 public class BoardController {
 	
 	@Autowired
-	private BoardRepository boardRepo;
-	
-	@Autowired
 	private BoardService service;
+	
+	@ModelAttribute("member")
+	public Member setMember() {
+		return new Member();
+	}
 	
 	@GetMapping("/hello")
 	public void hello(Model model) {
@@ -36,17 +41,23 @@ public class BoardController {
 	
 	
 	@RequestMapping("/getBoardList")
-	public String getBoardList(Model model, Board board) {
+	public String getBoardList(Model model, Board board,
+				@ModelAttribute("member") Member member) {
 
 		log.info("getBoardList()=========================");
 			
-		List<Board> boardList = new ArrayList<>();
+		if(member.getId() == null) {
+			return "redirect:login";
+		}else {
 		
-		boardList = service.getBoardList(board);
-		
-		model.addAttribute("boardList", boardList);
-		
-		return "getBoardList";
+			List<Board> boardList = new ArrayList<>();
+			
+			boardList = service.getBoardList(board);
+			
+			model.addAttribute("boardList", boardList);
+			
+			return "getBoardList";
+		}	
 	} 
 	
 	@RequestMapping("/getBoard")
