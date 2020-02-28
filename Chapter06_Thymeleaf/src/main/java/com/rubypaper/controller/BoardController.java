@@ -1,35 +1,88 @@
 package com.rubypaper.controller;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.rubypaper.domain.Board;
+import com.rubypaper.persistence.BoardRepository;
+import com.rubypaper.service.BoardService;
 
+import lombok.extern.log4j.Log4j2;
+import oracle.jdbc.proxy.annotation.Post;
+
+@Log4j2
 @Controller
 public class BoardController {
 	
+	@Autowired
+	private BoardRepository boardRepo;
+	
+	@Autowired
+	private BoardService service;
+	
+	@GetMapping("/hello")
+	public void hello(Model model) {
+		model.addAttribute("greeting", "HELLO 타임리프~");
+		
+		log.info("===================== hello()");
+	}
+	
+	
 	@RequestMapping("/getBoardList")
-	public void getBoardList(Model model) {
+	public String getBoardList(Model model, Board board) {
+
+		log.info("getBoardList()=========================");
+			
 		List<Board> boardList = new ArrayList<>();
 		
-		for (int i = 1; i <= 10; i++) {
-			Board board = new Board();
-			
-			board.setSeq(new Long(i));
-			board.setTitle("게시판 프로그램 테스트");
-			board.setWriter("도우너");
-			board.setContent("게시판 프로그램 테스트.....");
-			board.setCreateDate(new Date());
-			board.setCnt(0L);
-			boardList.add(board);
-		}
+		boardList = service.getBoardList(board);
 		
 		model.addAttribute("boardList", boardList);
 		
+		return "getBoardList";
+	} 
+	
+	@RequestMapping("/getBoard")
+	public void getBoard(Model model, Board board) {
+		log.info("getBoard() ===============");
+		
+		model.addAttribute("board", service.getBoard(board));
 	}
+	
+	@GetMapping("/insertBoard")
+	public void insertBoardView(Board board) {
+		 log.info("insertBoard() ==============");
+	}
+	
+	@PostMapping("/insertBoard")
+	public String insertBoard(Board board) {
+		service.insertBoard(board);
+		return "redirect:getBoardList";
+	}
+	
+	@PostMapping("/updateBoard")
+	public String updateBoard(Board board) {
+		service.updateBoard(board);
+		return "forward:getBoardList";
+	}
+	
+	@GetMapping("/deleteBoard")
+	public String deleteBoard(Board board) {
+		service.deleteBoard(board);
+		return "forward:getBoardList";
+	}
+	
+	@GetMapping("/login")
+	public void loginView() {
+		
+	}
+	
+	
 }

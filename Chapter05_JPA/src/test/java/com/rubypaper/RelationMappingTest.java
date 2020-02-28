@@ -24,7 +24,7 @@ public class RelationMappingTest {
 	@Autowired
 	private MemberRepository memberRepo;
 	
-	/*
+	
 	// 다대일 연관관계 - 글 등록
 	@Test
 	public void testManyToOneInsert() {
@@ -90,8 +90,9 @@ public class RelationMappingTest {
 		}
 	} */
 	
+	/*
 	@Test
 	public void testCascadeDelete() {
 		memberRepo.deleteById("member2");
-	}
+	} */
 }

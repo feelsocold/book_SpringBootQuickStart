@@ -1,5 +1,6 @@
 package com.rubypaper;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -27,14 +28,14 @@ public class BoadrRepositoryTest {
 	public void testInsertBoard() {
 		Board board = new Board();
 		board.setTitle("첫 번째 게시글");
-		board.setWrtier("테스터");
+		//board.setWriter("테스터");
 		board.setContent("게시글 내용");
 		board.setCreateDate(new Date());
 		board.setCnt(0L);
 		
 		boardRepo.save(board);
-	} 
-	*/
+	} */
+	
 	
 	//	조회하기
 	/*
@@ -79,6 +80,7 @@ public class BoadrRepositoryTest {
 		
 	} */
 	
+	/*
 	@Test
 	public void testFindByTitleContaining() {
 		Pageable paging = PageRequest.of(0, 5);		// (페이지번호(0부터시작), 데이터갯수)
@@ -87,7 +89,7 @@ public class BoadrRepositoryTest {
 		System.out.println("검색 결과");
 		for (Board board : boardList) {
 			System.out.println("===>" + board.toString());
-		} */
+		} 
 		
 		Page<Board> pageInfo = boardRepo.findByTitleContaining("제목", paging);
 		
@@ -103,9 +105,7 @@ public class BoadrRepositoryTest {
 		for (Board board : boardList) {
 			System.out.println("====>" + board.toString());
 		}
-		
-		
-	}
+	} */
 	
 	
 	
